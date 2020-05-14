@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`App component renders App 1`] = `
+exports[`RadioButton matches a snapshot 1`] = `
 <ContextProvider
   value={
     Object {
@@ -17,6 +17,8 @@ exports[`App component renders App 1`] = `
     }
   }
 >
-  <App />
+  <RadioButton
+    value="get"
+  />
 </ContextProvider>
 `;

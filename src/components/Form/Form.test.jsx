@@ -1,13 +1,13 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import App from './App';
-import { APIClientProvider } from '../../hooks/APIClientProvider';
+import Form from './Form.jsx';
+import { APIClientProvider } from '../../hooks/APIClientProvider.jsx';
 
-describe('App component', () => {
-  it('renders App', () => {
+describe('Form', () => {
+  it('matches a snapshot', () => {
     const wrapper = shallow(
       <APIClientProvider>
-        <App />
+        <Form />
       </APIClientProvider>
     );
     expect(wrapper).toMatchSnapshot();

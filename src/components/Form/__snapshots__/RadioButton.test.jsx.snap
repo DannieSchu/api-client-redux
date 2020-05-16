@@ -1,24 +1,20 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`RadioButton matches a snapshot 1`] = `
-<ContextProvider
-  value={
-    Object {
-      "body": "",
-      "handleChange": [Function],
-      "handleClick": [Function],
-      "handleDelete": [Function],
-      "handleSubmit": [Function],
-      "loading": false,
-      "method": "get",
-      "requests": Array [],
-      "results": null,
-      "url": "",
-    }
-  }
+<div
+  className="RadioButton"
 >
-  <RadioButton
+  <input
+    id="get"
+    name="method"
+    onChange={[Function]}
+    type="radio"
     value="get"
   />
-</ContextProvider>
+  <label
+    htmlFor="get"
+  >
+    get
+  </label>
+</div>
 `;

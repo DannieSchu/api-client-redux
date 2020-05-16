@@ -11,6 +11,6 @@ export const getConfig = (method, body) => {
   };
 };
 
-export const apiData = (url, method, body = null) =>
+export const fetchResponse = (url, method, body = null) =>
   fetch(url, getConfig(method, body))
     .then(response => response.json());

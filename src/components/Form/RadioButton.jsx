@@ -1,19 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './RadioButton.css';
-import { useHandleChange } from '../../hooks/APIClientProvider';
 
-export const RadioButton = ({ value }) => {
-  const handleChange = useHandleChange();
+export const RadioButton = ({ value, name, onChange }) => {
 
   return (
     <div className={styles.RadioButton}>
       <input
         id={value}
         type="radio"
-        name="method"
+        name={name}
         value={value}
-        onChange={handleChange}
+        onChange={onChange}
       />
       <label htmlFor={value}>{value}</label>
     </div>
@@ -21,5 +19,7 @@ export const RadioButton = ({ value }) => {
 };
 
 RadioButton.propTypes = {
-  value: PropTypes.string.isRequired
+  value: PropTypes.string.isRequired,
+  name: PropTypes.string,
+  onChange: PropTypes.func
 };

@@ -1,13 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { useSelector } from 'react-redux';
+import { useFormRequest } from '../../hooks/formRequest';
+import { getURL, getMethod, getBody } from '../../selectors/requestsSelectors';
 import styles from './RequestItem.css';
-import { useUrl, useMethod, useBody, useHandleClick } from '../../hooks/APIClientProvider';
 
 const RequestItem = () => {
-  const url = useUrl();
-  const method = useMethod();
-  const body = useBody();
-  const handleClick = useHandleClick();
+  const url = useSelector(getURL);
+  const method = useSelector(getMethod);
+  const body = useSelector(getBody);
+  const { handleClick } = useFormRequest();
 
   return (
     <section className={styles.RequestItem} onClick={() => handleClick({ url, method, body })}>

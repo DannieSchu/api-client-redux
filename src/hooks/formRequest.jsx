@@ -9,13 +9,6 @@ export const useFormRequest = () => {
   const [body, setBody] = useState('');
 
   const dispatch = useDispatch();
-  
-  // TO DO: dispatch action to get requests from storage
-  // IS THIS NECESSARY???
-  // useEffect(() => {
-  //   const storage = JSON.parse(localStorage.getItem('requests'));
-  //   if(storage) setRequests(storage);
-  // }, []);
 
   const stateFactory = {
     url: setUrl,
@@ -28,21 +21,6 @@ export const useFormRequest = () => {
   const handleSubmit = e => {
     e.preventDefault();
     dispatch(makeRequest(url, method, body));
-      // .then(requests => dispatch(setRequests(requests)));
-
-    // setRequests(prevRequests => {
-    //   if(prevRequests.filter(request => request.url === url && request.method === method).length < 1) {
-    //     return [{
-    //       url,
-    //       method,
-    //       body: body || null
-    //     }, ...prevRequests,
-    //     ];
-    //   } else {
-    //     return prevRequests;
-    //   }
-    // });
-    // localStorage.setItem('requests', JSON.stringify(requests));
   };
 
   const methods = ['get', 'post', 'put', 'patch', 'delete'];
@@ -51,5 +29,11 @@ export const useFormRequest = () => {
     <RadioButton value={method} key={i} />
   ));
 
-  return { url, body, handleSubmit, handleChange, radioButtons };
+  const handleClick = ({ url, method, body }) => {
+    setUrl(url);
+    setMethod(method);
+    setBody(body || null);
+  };
+
+  return { url, body, handleSubmit, handleChange, radioButtons, handleClick };
 };

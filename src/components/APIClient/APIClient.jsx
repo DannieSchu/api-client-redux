@@ -1,12 +1,13 @@
 import React from 'react';
-import Form from '../Form/Form.jsx';
-import JsonDisplay from '../JsonDisplay/JsonDisplay.jsx';
-import RequestHistory from '../RequestHistory/RequestHistory.jsx';
-import { useRequests } from '../../hooks/APIClientProvider.jsx';
+import Form from '../Form/Form';
+import JsonDisplay from '../JsonDisplay/JsonDisplay';
+import RequestHistory from '../RequestHistory/RequestHistory';
 import styles from './APIClient.css';
+import { useSelector } from 'react-redux';
+import { getRequests } from '../../selectors/requestsSelectors';
 
 const APIClient = () => {
-  const requests = useRequests();
+  const { requests } = useSelector(getRequests);
 
   return (
     <section className={styles.APIClient}>
@@ -20,3 +21,4 @@ const APIClient = () => {
 };
 
 export default APIClient;
+

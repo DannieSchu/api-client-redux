@@ -1,14 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { useSelector } from 'react-redux';
 import { useFormRequest } from '../../hooks/formRequest';
-import { getURL, getMethod, getBody } from '../../selectors/requestsSelectors';
 import styles from './RequestItem.css';
 
-const RequestItem = () => {
-  const url = useSelector(getURL);
-  const method = useSelector(getMethod);
-  const body = useSelector(getBody);
+const RequestItem = ({ url, method, body }) => {
   const { handleClick } = useFormRequest();
 
   return (
@@ -22,7 +17,7 @@ const RequestItem = () => {
 RequestItem.propTypes = {
   method: PropTypes.string,
   url: PropTypes.string,
-  onClick: PropTypes.func
+  body: PropTypes.string
 };
 
 export default RequestItem;

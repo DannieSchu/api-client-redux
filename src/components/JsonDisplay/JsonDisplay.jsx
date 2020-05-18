@@ -1,22 +1,23 @@
 import React from 'react';
 import ReactJson from 'react-json-view';
-import { useResults, useLoading } from '../../hooks/APIClientProvider';
-import { themeColors } from './themeColors.jsx';
+import { useSelector } from 'react-redux';
+import { getResponse, getLoading } from '../../selectors/responseSelectors';
+import { themeColors } from './themeColors';
 import styles from './JsonDisplay.css';
 
 const JsonDisplay = () => {
-  const results = useResults();
-  const loading = useLoading();
+  const response = useSelector(getResponse);
+  const loading = useSelector(getLoading);
 
   return (
     <section className={styles.JsonDisplay}>
-      <h2>Result</h2>
+      <h2>Response</h2>
       <article>
-        {!results && loading
+        {!response && loading
           ? 'Loading'
-          : results
+          : response
             ? <ReactJson
-              src={results}
+              src={response.response.results}
               theme={themeColors}
               enableClipboard={false}
               iconStyle="circle"

@@ -1,10 +1,10 @@
 import React from 'react';
-import Form from '../Form/Form';
-import JsonDisplay from '../JsonDisplay/JsonDisplay';
-import RequestHistory from '../RequestHistory/RequestHistory';
-import styles from './APIClient.css';
 import { useSelector } from 'react-redux';
+import Form from '../Form/Form';
+import ResponseDisplay from '../ResponseDisplay/ResponseDisplay';
+import RequestHistory from '../RequestHistory/RequestHistory';
 import { getRequests } from '../../selectors/requestsSelectors';
+import styles from './APIClient.css';
 
 const APIClient = () => {
   const { requests } = useSelector(getRequests);
@@ -13,7 +13,7 @@ const APIClient = () => {
     <section className={styles.APIClient}>
       <section className={styles.formContainer}>
         <Form />
-        <JsonDisplay />
+        <ResponseDisplay />
       </section>
       {requests && <RequestHistory />}
     </section>

@@ -3,14 +3,14 @@ import ReactJson from 'react-json-view';
 import { useSelector } from 'react-redux';
 import { getResponse, getLoading } from '../../selectors/responseSelectors';
 import { themeColors } from './themeColors';
-import styles from './JsonDisplay.css';
+import styles from './ResponseDisplay.css';
 
-const JsonDisplay = () => {
+const ResponseDisplay = () => {
   const response = useSelector(getResponse);
   const loading = useSelector(getLoading);
 
   return (
-    <section className={styles.JsonDisplay}>
+    <section className={styles.ResponseDisplay}>
       <h2>Response</h2>
       <article>
         {!response && loading
@@ -30,4 +30,4 @@ const JsonDisplay = () => {
   );
 };
 
-export default JsonDisplay;
+export default ResponseDisplay;

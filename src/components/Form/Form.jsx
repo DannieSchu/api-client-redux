@@ -1,21 +1,11 @@
 import React from 'react';
-import { RadioButton } from './RadioButton.jsx';
-import { RadioButtonGroup } from './RadioButtonGroup.jsx';
-import { useUrl, useBody, useHandleSubmit, useHandleChange } from '../../hooks/APIClientProvider';
+import { RadioButtonGroup } from './RadioButtonGroup';
 import styles from './Form.css';
-import buttonStyle from '../../css/button.css';
+import buttonStyle from '../../globalStyles/button.css';
+import { useFormRequest } from '../../hooks/formRequest';
 
 const Form = () => {
-  const url = useUrl();
-  const body = useBody();
-  const handleSubmit = useHandleSubmit();
-  const handleChange = useHandleChange();
-
-  const methods = ['get', 'post', 'put', 'patch', 'delete'];
-
-  const radioButtons = methods.map((method, i) => (
-    <RadioButton value={method} key={i} />
-  ));
+  const { url, body, handleSubmit, handleChange, radioButtons } = useFormRequest();
 
   return (
     <form className={styles.Form} onSubmit={handleSubmit}>
@@ -33,7 +23,7 @@ const Form = () => {
         <button className={buttonStyle.tealButton}>Send!</button>
       </div>
       <section>
-        <RadioButtonGroup name="method" >
+        <RadioButtonGroup name="method" onChange={handleChange} >
           {radioButtons}
         </RadioButtonGroup>
       </section>

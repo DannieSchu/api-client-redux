@@ -1,14 +1,15 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import Form from './Form.jsx';
-import { APIClientProvider } from '../../hooks/APIClientProvider.jsx';
+import { Provider } from 'react-redux';
+import store from '../../store.js';
 
 describe('Form', () => {
   it('matches a snapshot', () => {
     const wrapper = shallow(
-      <APIClientProvider>
+      <Provider store={store}>
         <Form />
-      </APIClientProvider>
+      </Provider>
     );
     expect(wrapper).toMatchSnapshot();
   });

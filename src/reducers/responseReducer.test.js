@@ -10,6 +10,7 @@ describe('response reducer', () => {
         results: [{ name: 'Clarice' }]
       }
     };
+    
     const action = {
       type: MAKE_REQUEST,
       payload: {
@@ -19,6 +20,7 @@ describe('response reducer', () => {
         response: 'some response'
       }
     };
+
     const newState = reducer(state, action);
 
     expect(newState).toEqual({

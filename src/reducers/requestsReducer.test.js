@@ -9,6 +9,7 @@ describe('requests reducer', () => {
       body: null,
       response: 'some json'
     }];
+    
     const action = {
       type: MAKE_REQUEST,
       payload: {
@@ -18,7 +19,9 @@ describe('requests reducer', () => {
         response: 'json response'
       }
     };
+
     const newState = reducer(state, action);
+
     expect(newState).toEqual([{
       url: 'another url',
       method: 'post',
